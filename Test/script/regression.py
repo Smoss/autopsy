@@ -789,7 +789,7 @@ def compare_bb_artifacts():
 	exceptions = []
 	try:
 		for type_id in range(1, 13):
-			if database.gold_artifacts != database.autopsy_artifacts:
+			if database.gold_artifacts[type_id] != database.autopsy_artifacts[type_id]:
 				error = str("Artifact counts do not match for type id %d. " % type_id)
 				error += str("Gold: %d, Test: %d" %
 							(database.gold_artifacts[type_id],
@@ -899,7 +899,7 @@ def	compare_errors():
 		global errorem
 		global failedbool
 		attachl.append(diff_dir)
-		errorem += "There was a difference in the exceptions Log.\n"
+		errorem += "There was a difference in the exceptions Log for " + case.image_name + ".\n"
 		print("Exceptions didn't match.\n")
 		failedbool = True
 
